@@ -3,8 +3,10 @@ import './App.css';
 import {
   FormControl, Select, MenuItem
 } from "@material-ui/core";
+import InfoBox from './infoBox';
 function App() {
   const [countries, setCountries] = useState([]);
+  const [country, setCountry] = useState(['worldwide']);
 
   useEffect(() => {
     const getContriesData = async () => {
@@ -23,13 +25,20 @@ function App() {
 
   }, []);
 
-  return (
+  const onCountryChange = async (event) => {
+    const countryCode = event.target.value;
+
+    console.log("YOO!!!!", countryCode);
+    setCountry(countryCode);
+  };
+
+  return ( 
     <div className="App">
       <div className="app_header">
         <h1>COVID-19-TRACKER</h1>
         <FormControl className="app_dropdown">
-          <Select variant="outlined" value="abc">
-
+          <Select variant="outlined" onChange={onCountryChange} value={country}>
+            <MenuItem value="worldwide">Worldwide</MenuItem>
             {countries.map((country) => (
               <MenuItem value={country.value}>{country.name}</MenuItem>
             ))}
@@ -38,6 +47,12 @@ function App() {
           <MenuItem value="worldwide">Worldwide</MenuItem> */}
           </Select>
         </FormControl>
+
+      </div>
+      <div className="app_stats">
+        <InfoBox title="Coronavirus Cases" />
+        <InfoBox title="Recovered" />
+        <InfoBox title="Deaths" />
 
       </div>
     </div>
