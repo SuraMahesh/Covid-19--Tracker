@@ -6,6 +6,7 @@ import {
 import InfoBox from './infoBox';
 import Table from './Table';
 import Map from './Map';
+import { sortData } from './util';
 function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState(['worldwide']);
@@ -28,8 +29,10 @@ function App() {
           const countries = data.map((country) => ({
             name: country.country,
             value: country.countryInfo.iso2,
-          }));
-          setTableData(data);
+          })); 
+
+          const sortedData = sortData(data);
+          setTableData(sortedData);
           setCountries(countries);
         });
     };
