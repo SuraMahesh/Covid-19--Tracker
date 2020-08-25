@@ -7,6 +7,7 @@ import InfoBox from './infoBox';
 import Table from './Table';
 import Map from './Map';
 import { sortData } from './util';
+import LineGraph from './LineGraph';
 function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState(['worldwide']);
@@ -77,7 +78,7 @@ function App() {
           <MenuItem value="worldwide">Worldwide</MenuItem> */}
             </Select>
           </FormControl>
-        </div>
+        </div> 
 
 
         <div className="app_stats">
@@ -94,6 +95,7 @@ function App() {
             <Table countries={tableData}>
             </Table>
             <h3>Worldwide new cases</h3>
+            <LineGraph />
         </CardContent>
 
       </Card>
