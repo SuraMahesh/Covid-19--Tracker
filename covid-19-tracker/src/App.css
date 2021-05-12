@@ -11,6 +11,7 @@ body {
   align-items: center;
   margin-bottom: 20px;
   justify-content: space-between;
+  
 }
 
 .app_stats {
@@ -30,4 +31,11 @@ body {
 }
 .app__left {
   flex: 0.9;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
 }
